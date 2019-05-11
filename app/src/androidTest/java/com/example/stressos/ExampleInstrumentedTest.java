@@ -1,9 +1,8 @@
-package com.example.myfirstapp;
+package com.example.stressos;
 
 import android.content.Context;
-
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.myfirstapp", appContext.getPackageName());
+        assertEquals("com.example.stressos", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.stressos;
 
 import org.junit.Test;
 
