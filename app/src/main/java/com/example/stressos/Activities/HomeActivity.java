@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.stressos.Fragments.BadgesFragment;
 import com.example.stressos.Fragments.HomeFragment;
+import com.example.stressos.Fragments.ParentFragment;
 import com.example.stressos.Fragments.QuestionnaireFragment;
 import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private final Fragment questionFrag = new QuestionnaireFragment();
     private final Fragment badgesFrag = new BadgesFragment();
     private final Fragment homeFrag = new HomeFragment();
+    private final Fragment parentFrag = new ParentFragment();
     final FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment active = homeFrag;
 
@@ -49,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_parents:
                     mTextMessage.setText(R.string.title_parents);
+                    fragmentManager.beginTransaction().hide(active).show(parentFrag).commit();
+                    active = parentFrag;
                     return true;
             }
             return false;
@@ -62,13 +66,12 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        Intent intent = getIntent();
         username = LoggedInUser.getUserName();
         mTextMessage.setText("Hello, " + username);
         fragmentManager.beginTransaction().add(R.id.home_container, badgesFrag, "3").hide(badgesFrag).commit();
         fragmentManager.beginTransaction().add(R.id.home_container, questionFrag, "2").hide(questionFrag).commit();
         fragmentManager.beginTransaction().add(R.id.home_container, homeFrag, "1").commit();
-
+        fragmentManager.beginTransaction().add(R.id.home_container, parentFrag, "4").hide(parentFrag).commit();
     }
 
     public void openQuestionnaire(View view){
