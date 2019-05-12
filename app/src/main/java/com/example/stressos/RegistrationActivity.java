@@ -25,7 +25,8 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     /**
-     * Called when the user pressses the sign up button
+     * Called when the user presses the sign up button
+     * Called when the user presses the sign up button
      * Checks the user has entered all required fields and then sends a POST request to our database
      * @param view
      */
@@ -37,7 +38,9 @@ public class RegistrationActivity extends AppCompatActivity {
         String lName = editTextLastName.getText().toString();
 
         // Error checking
-        if (userNameError(userName) || passwordError(password) || passwordCError(passwordConfirm) || fNameError(fName) || lNameError(lName))
+        if (fieldError(userName, editTextUserName, "Username") || fieldError(password, editTextPassword, "Password") ||
+                fieldError(passwordConfirm, editTextPasswordConfirm, "confirm password") ||
+                fieldError(fName, editTextFirstName, "First name") || fieldError(lName, editTextLastName, "Last name"))
             return;
 
         if (!password.equals(passwordConfirm)) {
@@ -71,47 +74,10 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    private boolean userNameError(String userName) {
-        if (userName.isEmpty()) {
-            editTextUserName.setError("Email is required");
-            editTextUserName.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
-    private boolean passwordError(String password) {
-        if (password.isEmpty()) {
-            editTextPassword.setError("Password is required");
-            editTextPassword.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
-    private boolean passwordCError(String passwordC) {
-        if (passwordC.isEmpty()) {
-            editTextPasswordConfirm.setError("Please confirm your password");
-            editTextPasswordConfirm.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
-    private boolean fNameError(String fName) {
-        if (fName.isEmpty()) {
-            editTextFirstName.setError("First name is required");
-            editTextFirstName.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
-    private boolean lNameError(String lName) {
-        if (lName.isEmpty()) {
-            editTextLastName.setError("Last name is required");
-            editTextLastName.requestFocus();
-            return true;
+    private boolean fieldError(String fieldContent, EditText editText, String fieldName) {
+        if (fieldContent.isEmpty()) {
+            editText.setError(fieldName + " is required");
+            editText.requestFocus();
         }
         return false;
     }
