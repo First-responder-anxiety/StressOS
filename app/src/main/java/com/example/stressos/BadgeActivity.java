@@ -17,7 +17,7 @@ public class BadgeActivity extends AppCompatActivity {
 
     private String streakBadgeDescription = "Your longest streak for answering our surveys is \n\n days in a row!";
     private String streakChallengeDescription = "Your Challenge: Beat it!\n\nCurrent Streak: ";
-    private String surveyBadgeDescription = "You've answered our survey a total of \n\n" + numberOfSurveysAnswered + " times. \nKeep up the good work!";
+    private String surveyBadgeDescription = "You've answered our \n survey a total of \n\n     times. Good job!";
     private String surveyChallengeDescription = "Your Challenge: Beat it \n\n and get the " + nextDayBadge + " day badge!";
     private String timeBadgeDescription = "";
     private String timeChallengeDescription = "";
@@ -80,7 +80,7 @@ public class BadgeActivity extends AppCompatActivity {
 
         // Set the longest Streak number.
         TextView longestStreakTextView = findViewById(R.id.longestStreakNumber);
-        longestStreakTextView.setText("");
+        longestStreakTextView.setText(numberOfSurveysAnswered);
 
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
