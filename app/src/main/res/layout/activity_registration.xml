@@ -114,7 +114,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
-        android:enabled="false"
+        android:onClick="signUp"
         android:text="@string/action_register_in_short"
         android:theme="@style/PrimaryButton"
         app:layout_constraintBottom_toBottomOf="parent"
