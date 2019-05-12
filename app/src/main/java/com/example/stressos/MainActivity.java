@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
+
+    // Temporary Code to Try out the Badges Page
+    // Make sure to remove the extra button from the activity_main.xml file too.
+    public void startBadges(View view) {
+        Intent intent = new Intent(this, Earned30DayBadge.class);
+        startActivity(intent);
+    }
+
     public void killMain(){
         finish();
     }

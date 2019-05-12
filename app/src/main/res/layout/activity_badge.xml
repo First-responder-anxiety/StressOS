@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BadgeActivity">
+
+    <TextView
+        android:id="@+id/BadgePageTitle"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/title_badges"
+        android:text="@string/view_your_badges"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/badgesGallery"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/longestStreakBadgeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@string/badge_names"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/longeststreakbadge" />
+
+            <ImageButton
+                android:id="@+id/completedSurveyDaysBadgeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@string/badge_names"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/surveydaysbadge" />
+
+            <ImageButton
+                android:id="@+id/timeOnSurveyBadgeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@string/badge_names"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/timeonsurveybadge" />
+
+            <ImageButton
+                android:id="@+id/wearingWatchBadgeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@string/badge_names"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/wearingwatchbadge" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/longestStreakDescription"
+        android:layout_width="389dp"
+        android:layout_height="213dp"
+        android:gravity="center"
+        android:text="Your longest streak for answering our surveys is \n\n days in a row!"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <TextView
+        android:id="@+id/longestStreakNumber"
+        android:layout_width="84dp"
+        android:layout_height="67dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <TextView
+        android:id="@+id/challengeandcurrentStreak"
+        android:layout_width="394dp"
+        android:layout_height="221dp"
+        android:gravity="center"
+        android:text="Your Challenge: Beat it!\n\nCurrent Streak: "
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="500dp" />
+
+    <TextView
+        android:id="@+id/currentStreakNumber"
+        android:layout_width="84dp"
+        android:layout_height="67dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="311dp"
+        tools:layout_editor_absoluteY="629dp" />
+
+</android.support.constraint.ConstraintLayout>
