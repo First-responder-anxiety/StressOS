@@ -1,4 +1,4 @@
-package com.example.stressos;
+package com.example.stressos.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,12 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.stressos.Fragments.BadgesFragment;
+import com.example.stressos.Fragments.HomeFragment;
+import com.example.stressos.Fragments.QuestionnaireFragment;
+import com.example.stressos.R;
+import com.example.stressos.data.LoggedInUser;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -57,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME");
+        username = LoggedInUser.getUserName();
         mTextMessage.setText("Hello, " + username);
         fragmentManager.beginTransaction().add(R.id.home_container, badgesFrag, "3").hide(badgesFrag).commit();
         fragmentManager.beginTransaction().add(R.id.home_container, questionFrag, "2").hide(questionFrag).commit();

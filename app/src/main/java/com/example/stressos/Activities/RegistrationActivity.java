@@ -1,4 +1,4 @@
-package com.example.stressos;
+package com.example.stressos.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.stressos.Api.RetroFitClient;
+import com.example.stressos.R;
 import com.example.stressos.responses.DefaultResponse;
 
 import retrofit2.Call;

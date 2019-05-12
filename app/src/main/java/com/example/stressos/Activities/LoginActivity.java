@@ -1,16 +1,22 @@
-package com.example.stressos;
+package com.example.stressos.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.stressos.Api.RetroFitClient;
+import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
 import com.example.stressos.responses.UserNameResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,16 +53,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserNameResponse> call, Response<UserNameResponse> response) {
                 UserNameResponse userNameResponse = response.body();
-                if (!userNameResponse.isError()) {
+                if (userNameResponse != null && !userNameResponse.isError()) {
                     Toast.makeText(LoginActivity.this, userNameResponse.getMessage(), Toast.LENGTH_LONG).show();
-                    LoggedInUser.setUserName(userNameResponse.getUserName());
+                    LoggedInUser.setUserName(userName);
                     startMain();
-                } else {
+                }  else {
                     if (response.code() == 400) {
                         // Username does not exits
                         editTextUserName.setError("Email is invalid");
                         editTextUserName.requestFocus();
-                        LoggedInUser.setUserName(userNameResponse.getUserName());
                     } else if (response.code() == 401) {
                         // Password is wrong
                         editTextPassword.setError("Password is invalid");
