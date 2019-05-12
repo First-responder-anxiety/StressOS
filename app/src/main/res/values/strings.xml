@@ -22,4 +22,8 @@
     <string name="title_questionnaire">Questionnaire</string>
     <string name="badge_names"></string>
     <string name="view_your_badges">View Your Badges</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name ="hello_blank_fragment">HELLO WORLD</string>
+    <string name="questionnaire_intro">Please take some time out of your day to answer a 10 second questionnaire!</string>
 </resources>
