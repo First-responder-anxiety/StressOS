@@ -1,5 +1,6 @@
 package com.example.stressos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,8 +44,9 @@ public class RegistrationActivity extends AppCompatActivity {
         // Error checking
         if (fieldError(userName, editTextUserName, "Username") || fieldError(password, editTextPassword, "Password") ||
                 fieldError(passwordConfirm, editTextPasswordConfirm, "confirm password") ||
-                fieldError(fName, editTextFirstName, "First name") || fieldError(lName, editTextLastName, "Last name"))
+                fieldError(fName, editTextFirstName, "First name") || fieldError(lName, editTextLastName, "Last name")) {
             return;
+        }
 
         if (!password.equals(passwordConfirm)) {
             Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
@@ -75,12 +77,16 @@ public class RegistrationActivity extends AppCompatActivity {
                 Toast.makeText(RegistrationActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private boolean fieldError(String fieldContent, EditText editText, String fieldName) {
         if (fieldContent.isEmpty()) {
             editText.setError(fieldName + " is required");
             editText.requestFocus();
+            return true;
         }
         return false;
     }
