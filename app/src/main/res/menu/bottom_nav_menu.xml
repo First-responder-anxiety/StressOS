@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_toys_black_24dp"
         android:title="@string/title_badges" />
     <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="@string/title_settings"
+        android:id="@+id/navigation_parents"
+        android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="@string/title_parents"
         />
 
 </menu>

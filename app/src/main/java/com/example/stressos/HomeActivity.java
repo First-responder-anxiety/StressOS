@@ -40,8 +40,8 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().hide(active).show(questionFrag).commit();
                     active = questionFrag;
                     return true;
-                case R.id.navigation_settings:
-                    mTextMessage.setText(R.string.title_settings);
+                case R.id.navigation_parents:
+                    mTextMessage.setText(R.string.title_parents);
                     return true;
             }
             return false;
