@@ -14,13 +14,14 @@ public class BadgeActivity extends AppCompatActivity {
     private String userCurrentStreak = "5";
     private String numberOfSurveysAnswered = "30";
     private String nextDayBadge = "50";
+    private String timeRespondingToNotification = "180";
 
     private String streakBadgeDescription = "Your longest streak for answering our surveys is \n\n days in a row!";
     private String streakChallengeDescription = "Your Challenge: Beat it!\n\nCurrent Streak: ";
     private String surveyBadgeDescription = "You've answered our \n survey a total of \n\n     times. Good job!";
     private String surveyChallengeDescription = "Your Challenge: Beat it \n\n and get the " + nextDayBadge + " day badge!";
-    private String timeBadgeDescription = "";
-    private String timeChallengeDescription = "";
+    private String timeBadgeDescription = "Wow, you've answered our daily survey notification is \n\n   seconds.";
+    private String timeChallengeDescription = "Keep up the good work \n\n and thanks for your help!";
     private String watchBadgeDescription = "";
     private String watchChallengeDescription = "";
 
@@ -99,7 +100,7 @@ public class BadgeActivity extends AppCompatActivity {
 
         // Set the longest Streak number.
         TextView longestStreakTextView = findViewById(R.id.longestStreakNumber);
-        longestStreakTextView.setText("");
+        longestStreakTextView.setText(timeRespondingToNotification);
 
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
