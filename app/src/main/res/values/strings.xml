@@ -32,4 +32,5 @@
     <string name="parent_day_start">Normal day shift start time</string>
     <string name="parent_shift_length">Length (AVG)</string>
     <string name="button_submit">Submit</string>
+    <string name="button_insert_shift">Insert a Shift</string>
 </resources>

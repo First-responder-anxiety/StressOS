@@ -2,11 +2,11 @@ package com.example.stressos.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -21,8 +21,6 @@ import com.example.stressos.Fragments.QuestionnaireFragment;
 import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
 import com.example.stressos.responses.ParentResponse;
-
-import java.sql.Time;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -152,6 +150,11 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void createShiftActivity(View view) {
+        Intent intent = new Intent(this, ShiftActivity.class);
+        startActivity(intent);
     }
 
     private boolean fieldError(String fieldContent, EditText editText, String fieldName) {

@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.ShiftActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
         <activity
             android:name=".Activities.HomeActivity"
             android:label="@string/title_activity_home"
-            android:parentActivityName=".Activities.HomeActivity"></activity>
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.RegistrationActivity"
             android:parentActivityName=".Activities.MainActivity">
