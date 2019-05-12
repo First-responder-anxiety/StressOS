@@ -1,5 +1,6 @@
 package com.example.stressos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view) {
         final String userName = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
-        if (fieldError(password, editTextPassword, "Password")) {
+        if (fieldError(password, editTextPassword, "Password", true) ||
+        fieldError(userName, editTextUserName, "Username", false)) {
             return;
         }
 
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!userNameResponse.isError()) {
                     Toast.makeText(LoginActivity.this, userNameResponse.getMessage(), Toast.LENGTH_LONG).show();
                     LoggedInUser.setUserName(userNameResponse.getUserName());
+                    startMain();
                 } else {
                     if (response.code() == 400) {
                         // Username does not exits
@@ -72,17 +75,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean fieldError(String fieldContent, EditText editText, String message) {
+    private boolean fieldError(String fieldContent, EditText editText, String fieldName, boolean checkLength) {
         if (fieldContent.isEmpty()) {
-            editText.setError(message + " must not be empty");
-            editText.requestFocus();
-            return true;
-        } else if (fieldContent.length() < 6) {
-            editText.setError(message + " must be at least 6 characters long");
+            editText.setError(fieldName + " must not be empty");
             editText.requestFocus();
             return true;
         }
+        if (checkLength) {
+            if (fieldContent.length() < 6) {
+                editText.setError(fieldName + " must be at least 6 characters long");
+                editText.requestFocus();
+                return true;
+            }
+        }
         return false;
+    }
+
+    private void startMain() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }
 

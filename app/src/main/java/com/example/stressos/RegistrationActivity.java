@@ -64,6 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 DefaultResponse defaultResponse = response.body();
                 if (response.code() == 201) {
                     Toast.makeText(RegistrationActivity.this, defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    startLogin();
                 } else if (response.code() == 401) {
                     editTextUserName.setError("User name already exists");
                     editTextUserName.requestFocus();
@@ -77,9 +78,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 Toast.makeText(RegistrationActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 
     private boolean fieldError(String fieldContent, EditText editText, String fieldName) {
@@ -89,6 +87,11 @@ public class RegistrationActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    private void startLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
 }
