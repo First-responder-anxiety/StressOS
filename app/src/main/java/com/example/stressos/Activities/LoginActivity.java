@@ -13,10 +13,6 @@ import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
 import com.example.stressos.responses.UserNameResponse;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

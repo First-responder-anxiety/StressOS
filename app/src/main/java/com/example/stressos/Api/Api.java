@@ -30,9 +30,9 @@ public interface Api {
     @POST("insertparent")
     Call<ParentResponse> insertparent(
             @Field("user_name") String user_name,
-            @Field("password") String password,
             @Field("first_name") String first_name,
-            @Field("last_name") String last_name
+            @Field("last_name") String last_name,
+            @Field("occupation") String occupation
     );
 
     @FormUrlEncoded

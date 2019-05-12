@@ -9,14 +9,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.stressos.Api.RetroFitClient;
 import com.example.stressos.Fragments.BadgesFragment;
 import com.example.stressos.Fragments.HomeFragment;
 import com.example.stressos.Fragments.ParentFragment;
 import com.example.stressos.Fragments.QuestionnaireFragment;
 import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
+import com.example.stressos.responses.ParentResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -81,6 +89,58 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    public void submitParents(View view) {
+        EditText editTextFirstName, editTextLastName, editTextOccupation;
+        editTextFirstName = findViewById(R.id.parent_first_name);
+        editTextLastName = findViewById(R.id.parent_last_name);
+        editTextOccupation = findViewById(R.id.parent_occupation);
+        String userName = LoggedInUser.getUserName();
+        String firstName = editTextFirstName.getText().toString();
+        String lastName = editTextLastName.getText().toString();
+        String occupation = editTextOccupation.getText().toString();
+
+        if (fieldError(firstName, editTextFirstName, "First name") ||
+                fieldError(lastName, editTextLastName, "Last name") ||
+                fieldError(occupation, editTextOccupation, "Occupation")) {
+            return;
+        }
+
+        Call<ParentResponse> call = RetroFitClient
+                .getInstance()
+                .getApi()
+                .insertparent(userName, firstName, lastName, occupation);
+
+        call.enqueue(new Callback<ParentResponse>() {
+            @Override
+            public void onResponse(Call<ParentResponse> call, Response<ParentResponse> response) {
+                ParentResponse parentResponse = response.body();
+                if (parentResponse != null && !parentResponse.isError()) {
+                    Toast.makeText(HomeActivity.this, "Added new Parent " + parentResponse.getFirst_name(), Toast.LENGTH_LONG).show();
+                } else {
+                    if (response.code() == 400) {
+                        Toast.makeText(HomeActivity.this, "Could not find user", Toast.LENGTH_LONG).show();
+                    } else if (response.code() == 401 || response.code() == 422) {
+                        Toast.makeText(HomeActivity.this, "Programming error", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ParentResponse> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private boolean fieldError(String fieldContent, EditText editText, String fieldName) {
+        if (fieldContent.isEmpty()) {
+            editText.setError(fieldName + " must be non-empty");
+            editText.requestFocus();
+            return true;
+        }
+        return false;
     }
 
 }
