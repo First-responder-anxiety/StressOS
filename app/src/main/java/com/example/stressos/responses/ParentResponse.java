@@ -1,4 +1,4 @@
-package com.example.stressos;
+package com.example.stressos.responses;
 
 public class ParentResponse extends DefaultResponse {
     private String user_name;

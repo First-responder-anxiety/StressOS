@@ -1,4 +1,4 @@
-package com.example.stressos;
+package com.example.stressos.responses;
 
 public class DataResponse extends DefaultResponse {
 

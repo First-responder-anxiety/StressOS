@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.stressos.Api.RetroFitClient;
+import com.example.stressos.responses.DefaultResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,7 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
      * Called when the user presses the sign up button
      * Called when the user presses the sign up button
      * Checks the user has entered all required fields and then sends a POST request to our database
-     * @param view
+     * @param view The sign-up view
      */
     public void signUp(View view) {
         String userName = editTextUserName.getText().toString();

@@ -1,4 +1,4 @@
-package com.example.stressos;
+package com.example.stressos.responses;
 
 /**
  * The response from a POST request

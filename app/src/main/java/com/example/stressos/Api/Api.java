@@ -1,4 +1,8 @@
-package com.example.stressos;
+package com.example.stressos.Api;
+
+import com.example.stressos.responses.DefaultResponse;
+import com.example.stressos.responses.ParentResponse;
+import com.example.stressos.responses.UserNameResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
