@@ -28,5 +28,8 @@
     <string name="parent_first_name">Parent First Name</string>
     <string name="parent_last_name">Parent Last Name</string>
     <string name="parent_occupation">Occupation</string>
+    <string name="parent_night_start">Normal night shift start time</string>
+    <string name="parent_day_start">Normal day shift start time</string>
+    <string name="parent_shift_length">Length (AVG)</string>
     <string name="button_submit">Submit</string>
 </resources>

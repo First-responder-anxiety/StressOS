@@ -22,6 +22,8 @@ import com.example.stressos.R;
 import com.example.stressos.data.LoggedInUser;
 import com.example.stressos.responses.ParentResponse;
 
+import java.sql.Time;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -92,20 +94,38 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void submitParents(View view) {
-        EditText editTextFirstName, editTextLastName, editTextOccupation;
+        EditText editTextFirstName, editTextLastName, editTextOccupation, editTextDayShiftStart;
+        EditText editTextNightShiftTime, editTextDayShiftLength, editTextNightShiftLength;
         editTextFirstName = findViewById(R.id.parent_first_name);
         editTextLastName = findViewById(R.id.parent_last_name);
         editTextOccupation = findViewById(R.id.parent_occupation);
+        editTextDayShiftStart = findViewById(R.id.day_shift_start_time);
+        editTextDayShiftLength = findViewById(R.id.day_shift_length);
+        editTextNightShiftTime = findViewById(R.id.night_shift_start_time);
+        editTextNightShiftLength = findViewById(R.id.night_shift_length);
         String userName = LoggedInUser.getUserName();
         String firstName = editTextFirstName.getText().toString();
         String lastName = editTextLastName.getText().toString();
         String occupation = editTextOccupation.getText().toString();
+        String dayShiftStart = editTextDayShiftStart.getText().toString();
+        String dayShiftLength = editTextDayShiftLength.getText().toString();
+        String nightShiftStart = editTextNightShiftTime.getText().toString();
+        String nightShiftLength = editTextNightShiftLength.getText().toString();
 
         if (fieldError(firstName, editTextFirstName, "First name") ||
                 fieldError(lastName, editTextLastName, "Last name") ||
-                fieldError(occupation, editTextOccupation, "Occupation")) {
+                fieldError(occupation, editTextOccupation, "Occupation") ||
+                fieldError(dayShiftStart, editTextDayShiftStart, "Day Shift Start Time") ||
+                fieldError(dayShiftLength, editTextDayShiftLength, "Day Shift Length") ||
+                fieldError(nightShiftStart, editTextNightShiftTime, "Night shift Start") ||
+                fieldError(nightShiftLength, editTextNightShiftLength, "Night shift Length")) {
             return;
         }
+
+        LoggedInUser.setParent_day_start(dayShiftStart);
+        LoggedInUser.setParent_day_length(dayShiftLength);
+        LoggedInUser.setParent_night_start(nightShiftStart);
+        LoggedInUser.setParent_day_length(nightShiftLength);
 
         Call<ParentResponse> call = RetroFitClient
                 .getInstance()

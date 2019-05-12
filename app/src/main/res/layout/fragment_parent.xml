@@ -72,7 +72,66 @@
         android:onClick="submitParents"
         android:text="@string/button_submit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parent_occupation " />
+        app:layout_constraintTop_toBottomOf="@+id/day_shift_start_time" />
+
+    <EditText
+        android:id="@+id/night_shift_start_time"
+        android:layout_width="236dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/parent_night_start"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parent_occupation" />
+
+    <EditText
+        android:id="@+id/day_shift_start_time"
+        android:layout_width="236dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/parent_day_start"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/night_shift_start_time" />
+
+    <EditText
+        android:id="@+id/night_shift_length"
+        android:layout_width="124dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="@string/parent_shift_length"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/day_shift_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/day_shift_length" />
+
+    <EditText
+        android:id="@+id/day_shift_length"
+        android:layout_width="124dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="@string/parent_shift_length"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/night_shift_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/parent_occupation" />
 
 </android.support.constraint.ConstraintLayout>
