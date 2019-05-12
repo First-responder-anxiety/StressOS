@@ -124,6 +124,7 @@ public class LoginActivity extends AppCompatActivity {
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("USERNAME", model.getDisplayName());
         startActivity(intent);
     }
 
