@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -30,9 +31,9 @@
 
         <LinearLayout
             android:id="@+id/badgesGallery"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/longestStreakBadgeButton"
@@ -85,44 +86,63 @@
         </LinearLayout>
     </HorizontalScrollView>
 
+
     <TextView
-        android:id="@+id/longestStreakDescription"
+        android:id="@+id/mainBadgeDescription"
         android:layout_width="389dp"
         android:layout_height="213dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:text="Your longest streak for answering our surveys is \n\n days in a row!"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="272dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <TextView
         android:id="@+id/longestStreakNumber"
         android:layout_width="84dp"
         android:layout_height="67dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="124dp"
         android:gravity="center"
         android:text=""
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="398dp" />
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mainBadgeDescription" />
 
     <TextView
-        android:id="@+id/challengeandcurrentStreak"
+        android:id="@+id/challengeDescription"
         android:layout_width="394dp"
         android:layout_height="221dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:text="Your Challenge: Beat it!\n\nCurrent Streak: "
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="500dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainBadgeDescription" />
 
     <TextView
         android:id="@+id/currentStreakNumber"
         android:layout_width="84dp"
         android:layout_height="67dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:text=""
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="629dp" />
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/challengeDescription"
+        app:layout_constraintTop_toTopOf="@+id/challengeDescription" />
 
 </android.support.constraint.ConstraintLayout>
