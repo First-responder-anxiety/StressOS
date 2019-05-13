@@ -1,10 +1,15 @@
-package com.example.stressos;
+package com.example.stressos.Activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.stressos.Api.RetroFitClient;
+import com.example.stressos.R;
+import com.example.stressos.responses.DefaultResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +33,7 @@ public class RegistrationActivity extends AppCompatActivity {
      * Called when the user presses the sign up button
      * Called when the user presses the sign up button
      * Checks the user has entered all required fields and then sends a POST request to our database
-     * @param view
+     * @param view The sign-up view
      */
     public void signUp(View view) {
         String userName = editTextUserName.getText().toString();
@@ -40,8 +45,9 @@ public class RegistrationActivity extends AppCompatActivity {
         // Error checking
         if (fieldError(userName, editTextUserName, "Username") || fieldError(password, editTextPassword, "Password") ||
                 fieldError(passwordConfirm, editTextPasswordConfirm, "confirm password") ||
-                fieldError(fName, editTextFirstName, "First name") || fieldError(lName, editTextLastName, "Last name"))
+                fieldError(fName, editTextFirstName, "First name") || fieldError(lName, editTextLastName, "Last name")) {
             return;
+        }
 
         if (!password.equals(passwordConfirm)) {
             Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
@@ -59,6 +65,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 DefaultResponse defaultResponse = response.body();
                 if (response.code() == 201) {
                     Toast.makeText(RegistrationActivity.this, defaultResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    startLogin();
                 } else if (response.code() == 401) {
                     editTextUserName.setError("User name already exists");
                     editTextUserName.requestFocus();
@@ -78,8 +85,14 @@ public class RegistrationActivity extends AppCompatActivity {
         if (fieldContent.isEmpty()) {
             editText.setError(fieldName + " is required");
             editText.requestFocus();
+            return true;
         }
         return false;
+    }
+
+    private void startLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
 }
