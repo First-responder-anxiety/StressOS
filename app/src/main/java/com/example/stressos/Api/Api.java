@@ -1,6 +1,7 @@
 package com.example.stressos.Api;
 
 import com.example.stressos.responses.DefaultResponse;
+import com.example.stressos.responses.MultipleParentResponse;
 import com.example.stressos.responses.ParentResponse;
 import com.example.stressos.responses.UserNameResponse;
 
@@ -37,7 +38,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("getuserparents")
-    Call<ParentResponse> getuserparents(
+    Call<MultipleParentResponse> getuserparents(
             @Field("user_name") String user_name
     );
 

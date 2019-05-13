@@ -8,10 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.stressos.Api.RetroFitClient;
 import com.example.stressos.R;
+import com.example.stressos.data.LoggedInUser;
+import com.example.stressos.responses.MultipleParentResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ShiftActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner spinner;
@@ -26,12 +33,8 @@ public class ShiftActivity extends AppCompatActivity implements AdapterView.OnIt
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<>();
-        categories.add("Automobile");
-        categories.add("Business Services");
-        categories.add("Computers");
-        categories.add("Education");
-        categories.add("Personal");
-        categories.add("Travel");
+        categories.add("Louise");
+        categories.add("Harold");
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
@@ -56,5 +59,25 @@ public class ShiftActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void getUserParents() {
+        String userName = LoggedInUser.getUserName();
+        Call<MultipleParentResponse> call = RetroFitClient
+                .getInstance()
+                .getApi()
+                .getuserparents(userName);
+
+        call.enqueue(new Callback<MultipleParentResponse>() {
+            @Override
+            public void onResponse(Call<MultipleParentResponse> call, Response<MultipleParentResponse> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<MultipleParentResponse> call, Throwable t) {
+
+            }
+        });
     }
 }
