@@ -1,7 +1,9 @@
 package com.example.stressos;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View;
 
@@ -14,7 +16,8 @@ public class BadgeActivity extends AppCompatActivity {
     private String userCurrentStreak = "5";
     private String numberOfSurveysAnswered = "\n30";
     private String nextDayBadge = "50";
-    private String timeRespondingToNotification = "\n180";
+    private String timeRespondingToNotification = "\n187";
+    private String watchWearingDays = "\n11";
 
     private String streakBadgeDescription = "\nYour longest streak for answering our surveys is \n\n days in a row!";
     private String streakChallengeDescription = "Your Challenge: Beat it!\n\nCurrent Streak: ";
@@ -22,8 +25,13 @@ public class BadgeActivity extends AppCompatActivity {
     private String surveyChallengeDescription = "Your Challenge: Beat it \n\n and get the " + nextDayBadge + " day badge!";
     private String timeBadgeDescription = "\nYour record in responding to our survey notification is \n\n   seconds!";
     private String timeChallengeDescription = "Keep up the good work \n\n and thanks for your help!";
-    private String watchBadgeDescription = "\n";
-    private String watchChallengeDescription = "";
+    private String watchBadgeDescription = "\nYou've done a good job keeping your watch on for \n\n days!       ";
+    private String watchChallengeDescription = "Your Challenge: Don't let it get to zero!";
+
+    private ImageButton streakButton;
+    private ImageButton surveyButton;
+    private ImageButton timeButton;
+    private ImageButton watchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +52,11 @@ public class BadgeActivity extends AppCompatActivity {
         currentStreakTextView.setText(userCurrentStreak);
 
         */
+
+        streakButton = findViewById(R.id.longestStreakBadgeButton);
+        surveyButton = findViewById(R.id.completedSurveyDaysBadgeButton);
+        timeButton = findViewById(R.id.timeOnSurveyBadgeButton);
+        watchButton = findViewById(R.id.wearingWatchBadgeButton);
 
         // Default Badge Shown
         longestStreakAction(null);
@@ -71,6 +84,12 @@ public class BadgeActivity extends AppCompatActivity {
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
         currentStreakTextView.setText(userCurrentStreak);
+
+        // Gray out the other buttons.
+        streakButton.setBackgroundColor(Color.parseColor("#808080"));
+        surveyButton.setBackgroundColor(Color.TRANSPARENT);
+        timeButton.setBackgroundColor(Color.TRANSPARENT);
+        watchButton.setBackgroundColor(Color.TRANSPARENT);
     }
 
     // Called the button is clicked.
@@ -94,6 +113,12 @@ public class BadgeActivity extends AppCompatActivity {
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
         currentStreakTextView.setText("");
+
+        // Gray out the other buttons.
+        streakButton.setBackgroundColor(Color.TRANSPARENT);
+        surveyButton.setBackgroundColor(Color.parseColor("#808080"));
+        timeButton.setBackgroundColor(Color.TRANSPARENT);
+        watchButton.setBackgroundColor(Color.TRANSPARENT);
     }
 
     // Called the button is clicked.
@@ -117,6 +142,12 @@ public class BadgeActivity extends AppCompatActivity {
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
         currentStreakTextView.setText("");
+
+        // Gray out the other buttons.
+        streakButton.setBackgroundColor(Color.TRANSPARENT);
+        surveyButton.setBackgroundColor(Color.TRANSPARENT);
+        timeButton.setBackgroundColor(Color.parseColor("#808080"));
+        watchButton.setBackgroundColor(Color.TRANSPARENT);
     }
 
     // Called the button is clicked.
@@ -135,10 +166,16 @@ public class BadgeActivity extends AppCompatActivity {
 
         // Set the longest Streak number.
         TextView longestStreakTextView = findViewById(R.id.longestStreakNumber);
-        longestStreakTextView.setText("");
+        longestStreakTextView.setText(watchWearingDays);
 
         // Set the current Streak number.
         TextView currentStreakTextView = findViewById(R.id.currentStreakNumber);
         currentStreakTextView.setText("");
+
+        // Gray out the other buttons.
+        streakButton.setBackgroundColor(Color.TRANSPARENT);
+        surveyButton.setBackgroundColor(Color.TRANSPARENT);
+        timeButton.setBackgroundColor(Color.TRANSPARENT);
+        watchButton.setBackgroundColor(Color.parseColor("#808080"));
     }
 }

@@ -10,12 +10,13 @@
         android:id="@+id/BadgePageTitle"
         android:layout_width="243dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/title_badges"
         android:text="@string/view_your_badges"
         android:textSize="30sp"
+        android:textColor="#0000FF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
