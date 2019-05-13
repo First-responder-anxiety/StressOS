@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.stressos.Activities.HomeActivity;
 import com.example.stressos.Activities.QuestionnaireActivity;
 
 public class HelpQuestionActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class HelpQuestionActivity extends AppCompatActivity {
     }
 
     public void exit(View view){
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
         finish();
     }
 

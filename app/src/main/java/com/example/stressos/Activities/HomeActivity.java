@@ -2,6 +2,7 @@ package com.example.stressos.Activities;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -94,11 +95,18 @@ public class HomeActivity extends AppCompatActivity {
 
         createNotificationChannel();
         //notification stuff
+        Intent intent = new Intent(this, QuestionnaireActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.heartbadge)
                 .setContentTitle("My notification")
                 .setContentText("Much longer text that cannot fit one line...")
-                .setStyle(new NotificationCompat.BigTextStyle()
+               .setContentIntent(pendingIntent)
+               .setAutoCancel(true)
+               .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText("Much longer text that cannot fit one line..."))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
@@ -107,6 +115,7 @@ public class HomeActivity extends AppCompatActivity {
     public void openQuestionnaire(View view){
         Intent intent = new Intent(this, QuestionnaireActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
