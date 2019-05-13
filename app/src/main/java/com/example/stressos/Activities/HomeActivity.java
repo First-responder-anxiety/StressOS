@@ -1,11 +1,16 @@
 package com.example.stressos.Activities;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +42,10 @@ public class HomeActivity extends AppCompatActivity {
     private final Fragment parentFrag = new ParentFragment();
     final FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment active = homeFrag;
+    NotificationCompat.Builder builder;
+
+
+    private final String CHANNEL_ID = "BOSLIVECHANNEL";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -82,6 +91,17 @@ public class HomeActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(R.id.home_container, questionFrag, "2").hide(questionFrag).commit();
         fragmentManager.beginTransaction().add(R.id.home_container, homeFrag, "1").commit();
         fragmentManager.beginTransaction().add(R.id.home_container, parentFrag, "4").hide(parentFrag).commit();
+
+        createNotificationChannel();
+        //notification stuff
+       builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.heartbadge)
+                .setContentTitle("My notification")
+                .setContentText("Much longer text that cannot fit one line...")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("Much longer text that cannot fit one line..."))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
     }
 
     public void openQuestionnaire(View view){
@@ -177,5 +197,30 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BadgeActivity.class);
         startActivity(intent);
     }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public void showNotification(View view){
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(10, builder.build());
+
+    }
+
 
 }

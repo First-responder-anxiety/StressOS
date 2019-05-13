@@ -23,6 +23,8 @@
     <string name="title_questionnaire">Questionnaire</string>
     <string name="badge_names"></string>
     <string name="view_your_badges">View Your Badges</string>
+    <string name="channel_name">BOSLive Channel</string>
+    <string name="channel_description">send notifications to help youth</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">HELLO WORLD</string>
