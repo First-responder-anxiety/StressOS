@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".QuestionnaireActivity"></activity>
+        <activity android:name=".HelpQuestionActivity"></activity>
+        <activity android:name=".QuestionnaireActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:parentActivityName=".HomeActivity"></activity>
+            android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".MainActivity">

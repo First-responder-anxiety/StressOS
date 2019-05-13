@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_mood_bad_black_72dp"
+    <item android:drawable="@drawable/ic_sentiment_neutral_black_72dp"
         android:state_selected="true" />
-    <item android:drawable="@drawable/ic_mood_bad_black_faded_72dp" />
+    <item android:drawable="@drawable/ic_sentiment_neutral_black_faded_72dp" />
 </selector>
