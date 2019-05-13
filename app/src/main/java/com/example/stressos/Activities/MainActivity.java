@@ -1,11 +1,11 @@
-package com.example.stressos;
+package com.example.stressos.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.stressos.ui.login.LoginActivity;
+import com.example.stressos.R;
 
 public class MainActivity extends AppCompatActivity {
 

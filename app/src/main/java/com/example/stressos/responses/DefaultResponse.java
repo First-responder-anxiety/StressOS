@@ -1,10 +1,10 @@
-package com.example.stressos;
+package com.example.stressos.responses;
 
 public class DefaultResponse {
     private boolean error;
     private String message;
 
-    public DefaultResponse(boolean error, String message) {
+    DefaultResponse(boolean error, String message) {
         this.error = error;
         this.message = message;
     }

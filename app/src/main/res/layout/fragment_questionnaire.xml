@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
-    tools:context=".QuestionnaireFragment">
+    tools:context=".Fragments.QuestionnaireFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

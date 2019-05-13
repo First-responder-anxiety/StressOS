@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.stressos">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,32 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".Earned30DayBadge"></activity>
         <activity android:name=".BadgeActivity" />
         <activity android:name=".HelpQuestionActivity"></activity>
-        <activity android:name=".QuestionnaireActivity" />
+        <activity android:name=".Activities.QuestionnaireActivity" />
+        <activity android:name=".Activities.ShiftActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
+
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:label="@string/title_activity_home"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".Activities.HomeActivity" />
+
         <activity
-            android:name=".RegistrationActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".Activities.RegistrationActivity"
+            android:parentActivityName=".Activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".Activities.MainActivity" />
         </activity>
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
+            android:value=".Activities.MainActivity" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
