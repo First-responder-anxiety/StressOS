@@ -94,4 +94,12 @@ public class QuestionnaireActivity extends AppCompatActivity {
         return this;
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
+
 }
