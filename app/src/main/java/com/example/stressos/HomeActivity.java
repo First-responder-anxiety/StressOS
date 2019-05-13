@@ -74,4 +74,14 @@ public class HomeActivity extends AppCompatActivity {
     public void onBackPressed() {
     }
 
+    public void dummyBadgeEarned(View view) {
+        Intent intent = new Intent(this, Earned30DayBadge.class);
+        startActivity(intent);
+    }
+
+    public void startBadges(View view) {
+        Intent intent = new Intent(this, BadgeActivity.class);
+        startActivity(intent);
+    }
+
 }
