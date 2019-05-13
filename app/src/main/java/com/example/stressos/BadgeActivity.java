@@ -10,19 +10,19 @@ public class BadgeActivity extends AppCompatActivity {
     // As of right now, there are default values (top variables).
     // Will have to create a function that calculates these values or obtains them from the database.
     // Needs to be a STRING.
-    private String userLongestStreak = "14";
+    private String userLongestStreak = "\n14";
     private String userCurrentStreak = "5";
-    private String numberOfSurveysAnswered = "30";
+    private String numberOfSurveysAnswered = "\n30";
     private String nextDayBadge = "50";
-    private String timeRespondingToNotification = "180";
+    private String timeRespondingToNotification = "\n180";
 
-    private String streakBadgeDescription = "Your longest streak for answering our surveys is \n\n days in a row!";
+    private String streakBadgeDescription = "\nYour longest streak for answering our surveys is \n\n days in a row!";
     private String streakChallengeDescription = "Your Challenge: Beat it!\n\nCurrent Streak: ";
-    private String surveyBadgeDescription = "You've answered our \n survey a total of \n\n     times. Good job!";
+    private String surveyBadgeDescription = "\nYou've answered our \n survey a total of \n\n     times. Good job!";
     private String surveyChallengeDescription = "Your Challenge: Beat it \n\n and get the " + nextDayBadge + " day badge!";
-    private String timeBadgeDescription = "Wow, you've answered our daily survey notification is \n\n   seconds.";
+    private String timeBadgeDescription = "\nYour record in responding to our survey notification is \n\n   seconds!";
     private String timeChallengeDescription = "Keep up the good work \n\n and thanks for your help!";
-    private String watchBadgeDescription = "";
+    private String watchBadgeDescription = "\n";
     private String watchChallengeDescription = "";
 
     @Override
@@ -52,6 +52,10 @@ public class BadgeActivity extends AppCompatActivity {
 
     // Called as default or when the button is clicked.
     public void longestStreakAction(View view) {
+        // Set the heading.
+        TextView streakBadgeHeading = findViewById(R.id.mainBadgeHeading);
+        streakBadgeHeading.setText("Longest Streak\n");
+
         // Set the streakBadgeDescription.
         TextView streakBadgeTextView = findViewById(R.id.mainBadgeDescription);
         streakBadgeTextView.setText(streakBadgeDescription);
@@ -71,6 +75,10 @@ public class BadgeActivity extends AppCompatActivity {
 
     // Called the button is clicked.
     public void surveyDayAction(View view) {
+        // Set the heading.
+        TextView streakBadgeHeading = findViewById(R.id.mainBadgeHeading);
+        streakBadgeHeading.setText("One Survey at a Time\n");
+
         // Set the surveyBadgeDescription.
         TextView surveyBadgeTextView = findViewById(R.id.mainBadgeDescription);
         surveyBadgeTextView.setText(surveyBadgeDescription);
@@ -90,6 +98,10 @@ public class BadgeActivity extends AppCompatActivity {
 
     // Called the button is clicked.
     public void timeSurveyAction(View view) {
+        // Set the heading.
+        TextView streakBadgeHeading = findViewById(R.id.mainBadgeHeading);
+        streakBadgeHeading.setText("Lightning Fast Response\n");
+
         // Set the timeBadgeDescription.
         TextView timeBadgeTextView = findViewById(R.id.mainBadgeDescription);
         timeBadgeTextView.setText(timeBadgeDescription);
@@ -109,6 +121,10 @@ public class BadgeActivity extends AppCompatActivity {
 
     // Called the button is clicked.
     public void wearingWatchAction(View view) {
+        // Set the heading.
+        TextView streakBadgeHeading = findViewById(R.id.mainBadgeHeading);
+        streakBadgeHeading.setText("Watching Your Health\n");
+
         // Set the watchBadgeDescription.
         TextView watchBadgeTextView = findViewById(R.id.mainBadgeDescription);
         watchBadgeTextView.setText(watchBadgeDescription);
