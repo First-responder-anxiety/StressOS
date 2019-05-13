@@ -14,6 +14,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Earned30DayBadge"></activity>
         <activity android:name=".BadgeActivity" />
+        <activity android:name=".HelpQuestionActivity"></activity>
+        <activity android:name=".QuestionnaireActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"

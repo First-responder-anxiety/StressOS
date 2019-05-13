@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -40,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().hide(active).show(questionFrag).commit();
                     active = questionFrag;
                     return true;
-                case R.id.navigation_settings:
-                    mTextMessage.setText(R.string.title_settings);
+                case R.id.navigation_parents:
+                    mTextMessage.setText(R.string.title_parents);
                     return true;
             }
             return false;
@@ -62,6 +63,11 @@ public class HomeActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(R.id.home_container, questionFrag, "2").hide(questionFrag).commit();
         fragmentManager.beginTransaction().add(R.id.home_container, homeFrag, "1").commit();
 
+    }
+
+    public void openQuestionnaire(View view){
+        Intent intent = new Intent(this, QuestionnaireActivity.class);
+        startActivity(intent);
     }
 
     @Override
