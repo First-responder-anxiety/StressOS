@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Earned30DayBadge"></activity>
+        <activity android:name=".BadgeActivity" />
         <activity android:name=".HelpQuestionActivity"></activity>
         <activity android:name=".QuestionnaireActivity" />
         <activity
